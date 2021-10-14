@@ -39,7 +39,8 @@ class MethodCallHandler implements MethodChannel.MethodCallHandler {
               (List<String>) call.argument("paths"),
               (List<String>) call.argument("mimeTypes"),
               (String) call.argument("text"),
-              (String) call.argument("subject"));
+              (String) call.argument("subject"),
+              (String) call.argument("filterPackage"));
           result.success(null);
         } catch (IOException e) {
           result.error(e.getMessage(), null, null);

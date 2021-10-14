@@ -50,6 +50,7 @@ class SharePlatform extends PlatformInterface {
     String? subject,
     String? text,
     Rect? sharePositionOrigin,
+    String? filterPackage
   }) {
     return _instance.shareFiles(
       paths,
@@ -57,6 +58,7 @@ class SharePlatform extends PlatformInterface {
       subject: subject,
       text: text,
       sharePositionOrigin: sharePositionOrigin,
+      filterPackage: filterPackage,
     );
   }
 }

@@ -63,7 +63,7 @@ class Share {
     startActivity(chooserIntent);
   }
 
-  void shareFiles(List<String> paths, List<String> mimeTypes, String text, String subject)
+  void shareFiles(List<String> paths, List<String> mimeTypes, String text, String subject, String filterPackage)
       throws IOException {
     if (paths == null || paths.isEmpty()) {
       throw new IllegalArgumentException("Non-empty path expected");
@@ -89,6 +89,11 @@ class Share {
     if (text != null) shareIntent.putExtra(Intent.EXTRA_TEXT, text);
     if (subject != null) shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
     shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    System.out.println("GOT FILE FILTER");
+    System.out.println(filterPackage);
+    if (filterPackage != null) {
+      shareIntent.setPackage(filterPackage);
+    }
     Intent chooserIntent = Intent.createChooser(shareIntent, null /* dialog title optional */);
 
     List<ResolveInfo> resInfoList =

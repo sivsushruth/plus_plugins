@@ -8,8 +8,6 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
 import 'package:share_plus_platform_interface/share_plus_platform_interface.dart';
-import 'package:share_plus_linux/share_plus_linux.dart';
-import 'package:share_plus_windows/share_plus_windows.dart';
 
 /// Plugin for summoning a platform share sheet.
 class Share {
@@ -28,16 +26,7 @@ class Share {
   // of dart plugins is implemented.
   // See https://github.com/flutter/flutter/issues/52267 for more details.
   static SharePlatform get _platform {
-    if (__platform == null) {
-      if (!_disablePlatformOverride && !kIsWeb) {
-        if (Platform.isLinux) {
-          __platform = ShareLinux();
-        } else if (Platform.isWindows) {
-          __platform = ShareWindows();
-        }
-      }
-      __platform ??= SharePlatform.instance;
-    }
+    __platform ??= SharePlatform.instance;
     return __platform!;
   }
 
@@ -98,15 +87,18 @@ class Share {
     String? subject,
     String? text,
     Rect? sharePositionOrigin,
+    String? filterPackage
   }) {
     assert(paths.isNotEmpty);
     assert(paths.every((element) => element.isNotEmpty));
+    print("FILTER PACKAGE${filterPackage}");
     return _platform.shareFiles(
       paths,
       mimeTypes: mimeTypes,
       subject: subject,
       text: text,
       sharePositionOrigin: sharePositionOrigin,
+      filterPackage: filterPackage
     );
   }
 }

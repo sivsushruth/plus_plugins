@@ -12,21 +12,16 @@ flutter:
         pluginClass: SharePlusPlugin
       ios:
         pluginClass: FLTSharePlusPlugin
-      linux:
-        default_package: share_plus_linux
-      macos:
-        default_package: share_plus_macos
-      web:
-        default_package: share_plus_web
-      windows:
-        default_package: share_plus_windows
 
 dependencies:
   meta: ^1.7.0
   mime: ^1.0.0
   flutter:
     sdk: flutter
-  share_plus_platform_interface: ^2.0.0
+  share_plus_platform_interface:
+    git: 
+      url: "https://github.com/sivsushruth/plus_plugins.git"
+      path: "share_plus/share_plus_platform_interface"
   share_plus_linux: ^2.0.0
   share_plus_macos: ^2.0.0
   share_plus_windows: ^2.0.0

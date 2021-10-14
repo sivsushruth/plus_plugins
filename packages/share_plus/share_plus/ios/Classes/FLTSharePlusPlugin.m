@@ -162,6 +162,7 @@ static UIViewController *TopViewControllerForViewController(UIViewController *vi
       NSArray *mimeTypes = arguments[@"mimeTypes"];
       NSString *subject = arguments[@"subject"];
       NSString *text = arguments[@"text"];
+      NSString *filterPackage = arguments[@"filterPackage"];
 
       if (paths.count == 0) {
         result([FlutterError errorWithCode:@"error"

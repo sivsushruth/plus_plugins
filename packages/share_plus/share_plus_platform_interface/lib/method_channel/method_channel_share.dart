@@ -49,6 +49,7 @@ class MethodChannelShare extends SharePlatform {
     String? subject,
     String? text,
     Rect? sharePositionOrigin,
+    String? filterPackage
   }) {
     assert(paths.isNotEmpty);
     assert(paths.every((element) => element.isNotEmpty));
@@ -60,6 +61,9 @@ class MethodChannelShare extends SharePlatform {
 
     if (subject != null) params['subject'] = subject;
     if (text != null) params['text'] = text;
+    if (filterPackage != null) params['filterPackage'] = filterPackage;
+
+    print("INSIDE METHOD CHANNEL $filterPackage");
 
     if (sharePositionOrigin != null) {
       params['originX'] = sharePositionOrigin.left;

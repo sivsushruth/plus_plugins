@@ -20,8 +20,8 @@ dependencies:
     sdk: flutter
   share_plus_platform_interface:
     git: 
-      url: "https://github.com/sivsushruth/plus_plugins.git"
-      path: "share_plus/share_plus_platform_interface"
+      url: "git://github.com/sivsushruth/plus_plugins.git"
+      path: "packages/share_plus/share_plus_platform_interface"
   share_plus_linux: ^2.0.0
   share_plus_macos: ^2.0.0
   share_plus_windows: ^2.0.0

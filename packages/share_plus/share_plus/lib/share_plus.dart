@@ -49,12 +49,14 @@ class Share {
     String text, {
     String? subject,
     Rect? sharePositionOrigin,
+    String? filterPackage
   }) {
     assert(text.isNotEmpty);
     return _platform.share(
       text,
       subject: subject,
       sharePositionOrigin: sharePositionOrigin,
+      filterPackage: filterPackage
     );
   }
 

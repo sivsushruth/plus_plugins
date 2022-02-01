@@ -49,7 +49,7 @@ class Share {
     this.activity = activity;
   }
 
-  void share(String text, String subject) {
+  void share(String text, String subject, String filterPackage) {
     if (text == null || text.isEmpty()) {
       throw new IllegalArgumentException("Non-empty text expected");
     }
@@ -58,6 +58,11 @@ class Share {
     shareIntent.setAction(Intent.ACTION_SEND);
     shareIntent.putExtra(Intent.EXTRA_TEXT, text);
     shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+    System.out.println("GOT FILE FILTER");
+    System.out.println(filterPackage);
+    if (filterPackage != null) {
+      shareIntent.setPackage(filterPackage);
+    }
     shareIntent.setType("text/plain");
     Intent chooserIntent = Intent.createChooser(shareIntent, null /* dialog title optional */);
     startActivity(chooserIntent);
@@ -74,7 +79,7 @@ class Share {
 
     Intent shareIntent = new Intent();
     if (fileUris.isEmpty()) {
-      share(text, subject);
+      share(text, subject, null);
       return;
     } else if (fileUris.size() == 1) {
       shareIntent.setAction(Intent.ACTION_SEND);

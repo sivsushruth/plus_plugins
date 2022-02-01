@@ -24,12 +24,16 @@ class MethodChannelShare extends SharePlatform {
     String text, {
     String? subject,
     Rect? sharePositionOrigin,
+    String? filterPackage
   }) {
     assert(text.isNotEmpty);
     final params = <String, dynamic>{
       'text': text,
-      'subject': subject,
+      'subject': subject
     };
+
+    if (filterPackage != null) params['filterPackage'] = filterPackage;
+
 
     if (sharePositionOrigin != null) {
       params['originX'] = sharePositionOrigin.left;

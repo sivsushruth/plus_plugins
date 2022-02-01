@@ -35,11 +35,13 @@ class SharePlatform extends PlatformInterface {
     String text, {
     String? subject,
     Rect? sharePositionOrigin,
+    String? filterPackage
   }) {
     return _instance.share(
       text,
       subject: subject,
       sharePositionOrigin: sharePositionOrigin,
+      filterPackage: filterPackage,
     );
   }
 
